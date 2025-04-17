@@ -204,7 +204,10 @@ else ifeq ($(platform), osx)
 
 # iOS
 else ifneq (,$(findstring ios,$(platform)))
-   TARGET := $(TARGET_NAME)_libretro_$(platform).dylib
+   ifeq ($(platform),ios-arm64-simulator)
+      TARGET := $(TARGET_NAME)_libretro_ios_simulator.dylib
+   else
+      TARGET := $(TARGET_NAME)_libretro_ios.dylib
    fpic := -fPIC
    SHARED := -dynamiclib
    ifeq ($(IOSSDK),)
