@@ -220,7 +220,6 @@ else ifneq (,$(findstring ios,$(platform)))
       MIN_IOS_SIM_VERSION = 11.0
       SIM_TARGET = arm64-apple-ios$(MIN_IOS_SIM_VERSION)-simulator
       CC = cc -arch arm64 -target $(SIM_TARGET) -isysroot $(IOSSDK)
-      DEFINES += -DHAVE_LOCALE -DHAVE_XLOCALE
    else
       CC = cc -arch armv7 -isysroot $(IOSSDK)
    endif
@@ -233,7 +232,7 @@ else ifneq (,$(findstring ios,$(platform)))
       PLATFORM_DEFINES := -miphoneos-version-min=5.0
    endif
    DEFINES += -std=c99
-   DEFINES += -DHAVE_STRLCPY
+   DEFINES += -DHAVE_STRLCPY -DHAVE_LOCALE -DHAVE_XLOCALE
 
 # tvOS
 else ifeq ($(platform), tvos-arm64)
