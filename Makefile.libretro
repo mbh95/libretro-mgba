@@ -208,6 +208,7 @@ else ifneq (,$(findstring ios,$(platform)))
       TARGET := $(TARGET_NAME)_libretro_ios_simulator.dylib
    else
       TARGET := $(TARGET_NAME)_libretro_ios.dylib
+   endif
    fpic := -fPIC
    SHARED := -dynamiclib
    ifeq ($(IOSSDK),)
