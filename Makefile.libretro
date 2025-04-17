@@ -195,7 +195,7 @@ else ifeq ($(platform), osx)
       DEFINES += -D__POWERPC__ -D__PPC__ -DMSB_FIRST
    endif
    DEFINES += -std=gnu99
-	DEFINES += -DHAVE_STRLCPY
+	DEFINES += -DHAVE_STRLCPY -DHAVE_LOCALE -DHAVE_XLOCALE
    ifeq ($(CROSS_COMPILE),1)
 	TARGET_RULE  = -target $(LIBRETRO_APPLE_PLATFORM) -isysroot $(LIBRETRO_APPLE_ISYSROOT)
 	CFLAGS      += $(TARGET_RULE)
